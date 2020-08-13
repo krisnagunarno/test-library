@@ -3,7 +3,7 @@
 def call(Map param){
 	pipeline {
 		agent {
-			label "dockerworker"
+			label "vm-master"
 		}
 		stages {
 			stage('Build') {
@@ -28,7 +28,7 @@ def call(Map param){
 			}
 			stage('Run app') {
 				steps {
-					sh 'docker run -p my-app'
+					sh 'docker run -p 80:80 my-app'
 				}
 			}
 		}
