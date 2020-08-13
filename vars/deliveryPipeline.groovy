@@ -1,9 +1,19 @@
 #!/usr/bin/env groovy
 
+def getAgent(){
+	if(BRANCH_NAME=="master"){
+		return "vm-master"
+	}
+	else{
+		return "vm-dev"
+	}
+}
+
 def call(Map param){
+	def agentName = getAgent()
 	pipeline {
 		agent {
-			label "vm-master"
+			label "${agentName}"
 		}
 		stages {
 			stage('Build') {
