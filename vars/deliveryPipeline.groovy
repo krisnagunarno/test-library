@@ -39,7 +39,7 @@ def call(Map param){
 			stage('Run app') {
 				steps {
 					sh 'docker run -p 80:80 my-app'
-					telegramSend "Hello World from ${agentName}"
+					
 				}
 			}
 		}
@@ -47,6 +47,13 @@ def call(Map param){
 			always {
 				deleteDir()
 			}
+			success{
+				telegramSend "Hello World Berhasil ${agentName}"
+			}
+			failed{
+				telegramSend "Hello World Gagal ${agentName}"
+			}
+			
 		}
 	}
 }
