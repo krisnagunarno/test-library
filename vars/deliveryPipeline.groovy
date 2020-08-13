@@ -3,7 +3,7 @@
 def call(Map param){
 	pipeline {
 		agent {
-			label "vm-master"
+			label "vm-dev"
 		}
 		stages {
 			stage('Build') {
