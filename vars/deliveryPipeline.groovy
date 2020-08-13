@@ -50,7 +50,7 @@ def call(Map param){
 			success{
 				telegramSend "Hello World Berhasil ${agentName}"
 			}
-			failed{
+			failure{
 				telegramSend "Hello World Gagal ${agentName}"
 			}
 			
